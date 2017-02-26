@@ -9,15 +9,15 @@ namespace Tibox.DataAccess.Tests
     [TestClass]
     public class CustomerRepositoryTest
     {
-        private readonly IRepository _repository;
+        private readonly IRepository<Customer> _repository;
         public CustomerRepositoryTest()
         {
-            _repository = new Repository.Repository();
+            _repository = new BaseRepository<Customer>();
         }
         [TestMethod]
         public void Get_All_Customers()
         {
-            var result = _repository.GetAllCustomer();
+            var result = _repository.GetAll();
             Assert.AreEqual(result.Count() > 0, true);
         }
 
@@ -32,14 +32,14 @@ namespace Tibox.DataAccess.Tests
                 Country = "Peru",
                 Phone = "555-555-555"
             };
-            var result = _repository.InsertCustomer(customer);
+            var result = _repository.Insert(customer);
             Assert.AreEqual(result > 0, true);
         }
 
         [TestMethod]
         public void First_Customer_By_Id()
         {
-            var customer = _repository.GetCustomerById(1);
+            var customer = _repository.GetEntityById(1);
             Assert.AreEqual(customer != null, true);
 
             Assert.AreEqual(customer.Id, 1);
@@ -50,19 +50,19 @@ namespace Tibox.DataAccess.Tests
         [TestMethod]
         public void Delete_Customer()
         {
-            var customer = _repository.GetCustomerById(93);
+            var customer = _repository.GetEntityById(93);
             Assert.AreEqual(customer != null, true);
 
-            Assert.AreEqual(_repository.DeleteCustomer(customer), true);
+            Assert.AreEqual(_repository.Delete(customer), true);
         }
 
         [TestMethod]
         public void Update_Customer()
         {
-            var customer = _repository.GetCustomerById(1);            
+            var customer = _repository.GetEntityById(1);            
             Assert.AreEqual(customer != null, true);
 
-            Assert.AreEqual(_repository.UpdateCustomer(customer), true);
+            Assert.AreEqual(_repository.Update(customer), true);
         }
     }
 }
