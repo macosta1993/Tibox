@@ -63,6 +63,10 @@
       <Project>{f2fc3802-bb38-4365-9b77-ad722a860acc}</Project>
       <Name>Tibox.Repository</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Tibox.UnitOfWork\Tibox.UnitOfWork.csproj">
+      <Project>{b3f6e302-34eb-4cff-ac4d-82451e6e7f17}</Project>
+      <Name>Tibox.UnitOfWork</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
