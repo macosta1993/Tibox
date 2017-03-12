@@ -1,0 +1,14 @@
+﻿[
+  {
+    "outputFile": "style/styles.css",
+    "inputFile": "scss/styles.scss"
+  },
+  {
+    "outputFile": "scss/base/_button.css",
+    "inputFile": "scss/base/_button.scss"
+  },
+  {
+    "outputFile": "scss/helpers/_colors.css",
+    "inputFile": "scss/helpers/_colors.scss"
+  }
+]
