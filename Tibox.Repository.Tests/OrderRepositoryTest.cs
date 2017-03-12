@@ -13,7 +13,7 @@ namespace Tibox.DataAccess.Tests
     [TestClass]
     public class OrderRepositoryTest
     {
-        private readonly IRepository<Order> _repository;
+        //private readonly IRepository<Order> _repository;
         private readonly IUnitOfWork _IUnitOfWork;
 
         public OrderRepositoryTest()

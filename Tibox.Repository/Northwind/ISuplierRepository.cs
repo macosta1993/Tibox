@@ -7,8 +7,8 @@ using Tibox.Models;
 
 namespace Tibox.Repository.Northwind
 {
-    public interface IOrderRepository : IRepository<Order>
+    public interface ISuplierRepository : IRepository<Supplier>
     {
-        Order OrderWithOrdersitems(int id);
+        Supplier SupplierProductItems(int nId);
     }
 }

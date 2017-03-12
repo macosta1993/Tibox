@@ -9,22 +9,22 @@ using Tibox.Models;
 
 namespace Tibox.Repository.Northwind
 {
-   public class OrderRepository : BaseRepository<Order>, IOrderRepository
+   public class SupplierRepository : BaseRepository<Supplier> , ISuplierRepository
     {
-        public Order OrderWithOrdersitems(int id)
+        public Supplier SupplierProductItems(int id)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
                 var parameters = new DynamicParameters();
-                parameters.Add("@ID", id);
+                parameters.Add("@IDSUPPLIER", id);
 
-                using (var multiple = connection.QueryMultiple("dbo.OrderWithOrdersitems",
+                using (var multiple = connection.QueryMultiple("dbo.SupplierProductItems",
                     parameters,
                     commandType: System.Data.CommandType.StoredProcedure))
                 {
-                    var order = multiple.Read<Order>().Single();
-                    order.Orders = multiple.Read<OrderItem>();
-                    return order;
+                    var suppli = multiple.Read<Supplier>().Single();
+                    suppli.SupplierProduct = multiple.Read<Product>();
+                    return suppli;
                 }
             }
         }

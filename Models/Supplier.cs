@@ -1,5 +1,11 @@
+using Dapper.Contrib.Extensions;
+using System;
+using System.Collections.Generic;
+
 namespace Tibox.Models
 {
+    
+     [Table("[Supplier]")]
     public class Supplier
     {        
         public int Id { get; set; }        
@@ -10,5 +16,7 @@ namespace Tibox.Models
         public string Country { get; set; }
         public string Phone { get; set; }
         public string Fax { get; set; }
+        [Computed]
+        public IEnumerable<Product> SupplierProduct { get; set; }
     }
 }

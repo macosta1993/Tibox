@@ -1,5 +1,9 @@
+using Dapper.Contrib.Extensions;
+using System.Collections.Generic;
+
 namespace Tibox.Models
 {
+    [Table("[Product]")]
     public class Product
     {
         public int Id { get; set; }
@@ -7,6 +11,7 @@ namespace Tibox.Models
         public int SupplierId { get; set; }
         public decimal? UnitPrice { get; set; }        
         public string Package { get; set; }
-        public bool IsDiscontinued { get; set; }        
+        public bool IsDiscontinued { get; set; }
+
     }
 }
